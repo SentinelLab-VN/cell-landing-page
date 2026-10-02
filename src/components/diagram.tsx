@@ -1,37 +1,39 @@
 /** Money enters once, leaves once. Everything in between stays inside. */
 export function Diagram() {
   return (
-    <svg viewBox="0 0 720 170" className="w-full" role="img" aria-label="Deposit on Stellar, pay inside the channel in private, withdraw to Stellar">
-      <defs>
-        <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M0 0 L8 4 L0 8 z" className="fill-dim" />
-        </marker>
-      </defs>
+    <figure>
+      <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+        <Step label="deposit" sub="from your Stellar wallet" />
+        <Arrow />
+        <div className="flex-1 rounded-lg border border-primary px-5 py-4 text-center">
+          <p className="text-[15px] font-medium text-foreground">Cell Channel</p>
+          <p className="mt-1 text-[12px] text-muted-foreground">payments between members · instant · private</p>
+        </div>
+        <Arrow />
+        <Step label="withdraw" sub="back to your Stellar wallet" />
+      </div>
+      <figcaption className="mt-4 flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-border pt-3 text-[12px] text-dim">
+        <span>Stellar · public ledger</span>
+        <span>only the deposit and the withdrawal appear here</span>
+      </figcaption>
+    </figure>
+  );
+}
 
-      <rect x="200.5" y="20.5" width="319" height="89" rx="8" className="fill-card stroke-primary" />
-      <text x="360" y="54" textAnchor="middle" className="fill-foreground text-[14px] font-medium">
-        Cell Channel
-      </text>
-      <text x="360" y="76" textAnchor="middle" className="fill-muted-foreground text-[11px]">
-        payments between members · instant · private
-      </text>
+function Step({ label, sub }: { label: string; sub: string }) {
+  return (
+    <div className="text-center sm:w-36">
+      <p className="text-[13px] text-foreground">{label}</p>
+      <p className="text-[11px] text-dim">{sub}</p>
+    </div>
+  );
+}
 
-      <path d="M60 65 H200" fill="none" className="stroke-border-strong" markerEnd="url(#arrow)" />
-      <path d="M520 65 H660" fill="none" className="stroke-border-strong" markerEnd="url(#arrow)" />
-      <text x="130" y="55" textAnchor="middle" className="fill-muted-foreground text-[11px]">
-        deposit
-      </text>
-      <text x="590" y="55" textAnchor="middle" className="fill-muted-foreground text-[11px]">
-        withdraw
-      </text>
-
-      <line x1="0" y1="140" x2="720" y2="140" className="stroke-border" />
-      <text x="0" y="160" className="fill-dim text-[11px]">
-        Stellar · public ledger
-      </text>
-      <text x="720" y="160" textAnchor="end" className="fill-dim text-[11px]">
-        only the deposit and the withdrawal appear here
-      </text>
-    </svg>
+function Arrow() {
+  return (
+    <span className="self-center text-dim sm:flex-none" aria-hidden>
+      <span className="sm:hidden">↓</span>
+      <span className="hidden sm:inline">→</span>
+    </span>
   );
 }
