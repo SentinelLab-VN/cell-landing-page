@@ -62,7 +62,8 @@ export function App() {
       </header>
 
       <Section n="01" title="What the contract enforces">
-        <table className="num w-full text-left text-[12.5px]">
+        <div className="overflow-x-auto">
+        <table className="num w-full min-w-[640px] text-left text-[12.5px]">
           <thead className="text-dim">
             <tr>
               <th className="py-2 pr-4 font-normal">entrypoint</th>
@@ -80,6 +81,7 @@ export function App() {
             ))}
           </tbody>
         </table>
+        </div>
         <p className="mt-5 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
           A release cannot exceed <code className="num text-foreground">TotalLocked(mint)</code> or a non-zero{" "}
           <code className="num text-foreground">release_cap</code>, and a nonce pays at most once: the contract
@@ -123,7 +125,8 @@ cell:withdraw:v1:<passphrase>:<channel>:<from>:<to>:<amount>:<request_id>:<expir
       </Section>
 
       <Section n="04" title="Deployments">
-        <table className="num w-full text-left text-[12px]">
+        <div className="overflow-x-auto">
+        <table className="num w-full min-w-[720px] text-left text-[12px]">
           <thead className="text-dim">
             <tr>
               <th className="py-2 pr-4 font-normal">network</th>
@@ -136,13 +139,14 @@ cell:withdraw:v1:<passphrase>:<channel>:<from>:<to>:<amount>:<request_id>:<expir
             {deployments.map(([net, id, hash, v]) => (
               <tr key={id} className="border-t border-border">
                 <td className="py-2.5 pr-4">{net}</td>
-                <td className="py-2.5 pr-4 break-all text-foreground">{id}</td>
+                <td className="py-2.5 pr-4 text-foreground">{id}</td>
                 <td className="py-2.5 pr-4">{hash}</td>
                 <td className="py-2.5">{v}</td>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
         <p className="mt-4 text-[12px] text-dim">
           Mainnet: not yet. The record is kept in{" "}
           <a className="text-muted-foreground hover:text-foreground" href={`${REPOS.contract}/blob/main/docs/deploy.md`}>
