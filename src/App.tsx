@@ -3,7 +3,7 @@ import type { ComponentType } from "react";
 import { Diagram } from "@/components/diagram";
 import { GitHubIcon, XIcon } from "@/components/icons";
 import { Moment } from "@/components/moment";
-import { APP_URL, CONTACT_URL, GITHUB_ORG, REPOS, X_URL } from "@/links";
+import { APP_URL, CONTACT_URL, GITHUB_ORG, X_URL } from "@/links";
 
 const button = "inline-flex h-10 items-center justify-center rounded-[10px] px-4 text-sm font-semibold whitespace-nowrap transition-colors";
 const primary = `${button} bg-primary text-primary-foreground hover:bg-primary-hover`;
@@ -39,7 +39,6 @@ export function App() {
             <a className="hover:text-foreground" href="#how">How it works</a>
             <a className="hover:text-foreground" href="#capabilities">Capabilities</a>
             <a className="hover:text-foreground" href="#uses">Use cases</a>
-            <a className="hover:text-foreground" href={REPOS.docs}>Docs</a>
           </nav>
           <div className="flex items-center gap-2">
             <a href={CONTACT_URL} className={`${outline} max-md:hidden`}>Talk to us</a>
@@ -147,7 +146,6 @@ export function App() {
             <span className="text-dim">SentinelLab</span>
           </span>
           <span className="flex items-center gap-5">
-            <a className="hover:text-foreground" href={REPOS.docs}>Docs</a>
             <a className="flex items-center gap-1.5 hover:text-foreground" href={X_URL}>
               <XIcon className="size-3.5" /> @cellprotocol_
             </a>
