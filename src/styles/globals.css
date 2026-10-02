@@ -226,3 +226,42 @@
     cursor: pointer;
   }
 }
+
+/* Landing-page motion. Entrances play once; the hero stream and edge chips loop.
+ * Reduced motion: no loops, elements render in their final state. */
+@theme inline {
+  --animate-fade-up: fade-up 400ms ease-out both;
+  --animate-stream-up: stream-up 22s linear infinite;
+  --animate-edge-pulse: edge-pulse 12s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes stream-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+  @keyframes edge-pulse {
+    0%, 42%, 100% { opacity: 0.28; }
+    8%, 26% { opacity: 1; }
+  }
+}
+
+@layer utilities {
+  /* Scroll reveal: an IntersectionObserver sets data-visible once the element enters the viewport. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 400ms ease-out, transform 400ms ease-out;
+  }
+  .reveal[data-visible] { opacity: 1; transform: none; }
+  .stream-mask {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .animate-fade-up, .animate-stream-up, .animate-edge-pulse { animation: none; }
+  }
+}
