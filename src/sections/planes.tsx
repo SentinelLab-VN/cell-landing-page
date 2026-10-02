@@ -9,8 +9,8 @@ export function Planes() {
           title="Escrow contract"
           items={["Holds the deposited assets", "Records custody per asset", "Pays a withdrawal once, against a proof"]}
         />
-        <div className="hidden items-center justify-center bg-card px-8 md:flex">
-          <div className="flex flex-col items-center gap-3">
+        <div className="flex items-center justify-center bg-card px-6 py-4 md:px-8">
+          <div className="flex gap-6 md:flex-col md:gap-3">
             <Arrow label="deposit" dir="right" />
             <Arrow label="release_funds" dir="left" />
           </div>
