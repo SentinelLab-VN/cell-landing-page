@@ -57,8 +57,8 @@ export function App() {
 
         <section className="border-t border-border py-14">
           <h2 className="text-xl font-semibold text-foreground">The core loop</h2>
-          <p className="mt-2 mb-8 max-w-[540px] text-[15px] leading-[1.6] text-muted-foreground">
-            Money enters once and leaves once. Everything in between stays inside the channel.
+          <p className="mt-2 mb-8 max-w-[600px] text-[15px] leading-[1.6] text-muted-foreground">
+            The ledger records the first and the last step. The two in between happen in the operator's books.
           </p>
           <Diagram />
         </section>
