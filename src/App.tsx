@@ -16,24 +16,24 @@ export function App() {
 
       <header className="border-t border-border py-16 sm:py-24">
         <h1 className="text-[34px] leading-[1.12] font-semibold tracking-[-0.02em] text-foreground sm:text-[44px]">
-          Payments on Stellar that stay private.
+          A private payment channel on Stellar.
         </h1>
         <p className="mt-6 text-[16px] leading-relaxed text-muted-foreground sm:text-[17px]">
-          Money comes into Cell Channel once. From then on members pay each other inside it: instantly, and without
-          the payment appearing on the public ledger. A withdrawal pays out to any Stellar address, yours or someone
-          else's.
+          Cell Protocol lets an operator give its users instant, private transfers, fully backed by real assets locked
+          on Stellar. Mainnet sees a deposit going in and a release coming out. It never sees the transfers in
+          between.
         </p>
       </header>
 
-      <div className="border-t border-border py-10">
+      <div className="border-t border-border py-12">
         <Diagram />
       </div>
 
       <section className="grid gap-8 border-t border-border py-14 sm:grid-cols-3 sm:gap-10">
         {[
-          ["Private", "Nobody watching the ledger sees who paid whom, or how much. They see money go in and money come out."],
-          ["Yours", "Your wallet signs every payment. No one, not even the operator, can move your balance without it."],
-          ["Backed", "The money sits in an escrow contract on Stellar the whole time. Anyone can check that it is there."],
+          ["Private", "Outsiders see every deposit and every release. They do not see who paid whom inside the channel, or how much."],
+          ["Signed", "Users sign every transfer with their own Stellar key. The operator cannot move in-channel funds without it."],
+          ["Backed", "The escrow holds the assets the whole time, and can never release more than it holds. Anyone can check."],
         ].map(([title, body]) => (
           <div key={title}>
             <h2 className="text-[15px] font-semibold text-foreground">{title}</h2>
@@ -43,10 +43,10 @@ export function App() {
       </section>
 
       <section className="border-t border-border py-14">
-        <h2 className="text-[15px] font-semibold text-foreground">Who runs a channel</h2>
+        <h2 className="text-[15px] font-semibold text-foreground">Tenants and channels</h2>
         <p className="mt-2 max-w-xl text-[14px] leading-relaxed text-muted-foreground">
-          A bank, a fintech, a marketplace. They deploy their own escrow, choose which assets to accept, and decide who
-          may join. Their users need nothing but a Stellar wallet.
+          An operator — a bank, a fintech, a marketplace — deploys its own escrow. That is a tenant. Each asset it
+          opens inside it is a channel: USDC, EURC, XLM. Users need nothing but a Stellar wallet.
         </p>
       </section>
 
