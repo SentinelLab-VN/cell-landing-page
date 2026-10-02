@@ -21,10 +21,10 @@ export function App() {
             <span className="text-[15px] font-semibold text-foreground">Cell</span>
           </a>
           <div className="flex items-center gap-1">
-            <LinkButton variant="ghost" href="#protocol" className="hidden sm:inline-flex">
+            <LinkButton variant="ghost" href="#protocol" className="hidden md:inline-flex">
               Protocol
             </LinkButton>
-            <LinkButton variant="ghost" href="#institutions" className="hidden sm:inline-flex">
+            <LinkButton variant="ghost" href="#institutions" className="hidden md:inline-flex">
               Institutions
             </LinkButton>
             <LinkButton variant="ghost" href={REPOS.docs}>
