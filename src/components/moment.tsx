@@ -1,4 +1,4 @@
-/** One product moment on a textured panel: a payout the user signed, waiting for the operator. */
+/** The operator's review dialog, as it is in the app. */
 export function Moment() {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
@@ -11,22 +11,24 @@ export function Moment() {
           backgroundSize: "22px 22px, 100% 100%, 100% 100%",
         }}
       />
-      <div className="relative flex min-h-[380px] items-center justify-center px-6 py-14">
-        <div className="w-full max-w-[380px] rounded-2xl border border-border bg-background p-6 shadow-lg">
-          <p className="num text-[11px] tracking-[0.2em] text-dim uppercase">Withdrawal request</p>
-          <p className="num mt-3 text-[28px] text-foreground">250.00 <span className="text-base text-muted-foreground">USDC</span></p>
+      <div className="relative flex min-h-[400px] items-center justify-center px-6 py-14">
+        <div className="w-full max-w-[440px] rounded-2xl border border-border-strong bg-popover p-6 shadow-lg">
+          <p className="text-lg font-semibold text-foreground">Review withdrawal</p>
+          <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">
+            Approving debits the member now and pays them on Stellar. It cannot be undone once paid.
+          </p>
           <dl className="mt-5 divide-y divide-border text-sm">
-            <Row k="From" v="GDZQ…9MRT" />
-            <Row k="Pays out to" v="GBXK…7QZM" />
-            <Row k="Signed by" v="the user's wallet" />
-            <Row k="Release" v="once, through the escrow" />
+            <Row k="Member" v="GDZQ…9MRT" />
+            <Row k="Pays to" v="GBXK…7QZM" />
+            <Row k="Amount" v="250.00 USDC" />
+            <Row k="Member's balance now" v="1,180.00 USDC" />
           </dl>
-          <div className="mt-5 flex gap-2">
-            <span className="inline-flex h-10 flex-1 items-center justify-center rounded-[10px] bg-primary text-sm font-semibold text-primary-foreground">
-              Approve payout
+          <div className="mt-6 flex justify-end gap-2">
+            <span className="inline-flex h-10 items-center justify-center rounded-[10px] border border-destructive/70 bg-destructive/8 px-4 text-sm font-semibold text-destructive">
+              Reject…
             </span>
-            <span className="inline-flex h-10 items-center justify-center rounded-[10px] border border-border-strong px-4 text-sm font-semibold text-foreground">
-              Reject
+            <span className="inline-flex h-10 items-center justify-center rounded-[10px] bg-primary px-4 text-sm font-semibold text-primary-foreground">
+              Approve payout
             </span>
           </div>
         </div>

@@ -2,7 +2,6 @@ import { Building2, Landmark, Lock, ScrollText, Scale, Server, ShieldCheck, User
 import type { ComponentType } from "react";
 import { Diagram } from "@/components/diagram";
 import { GitHubIcon, XIcon } from "@/components/icons";
-import { Mechanism } from "@/components/mechanism";
 import { Moment } from "@/components/moment";
 import { APP_URL, CONTACT_URL, GITHUB_ORG, REPOS, X_URL } from "@/links";
 
@@ -93,9 +92,6 @@ export function App() {
               </p>
             </div>
             <Diagram />
-          </div>
-          <div className="mt-14">
-            <Mechanism />
           </div>
         </section>
 
