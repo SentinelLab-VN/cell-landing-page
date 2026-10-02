@@ -21,12 +21,14 @@ export function App() {
             <span className="text-[15px] font-semibold text-foreground">Cell</span>
           </a>
           <div className="flex items-center gap-1">
-            <LinkButton variant="ghost" href="#protocol" className="hidden md:inline-flex">
-              Protocol
-            </LinkButton>
-            <LinkButton variant="ghost" href="#institutions" className="hidden md:inline-flex">
-              Institutions
-            </LinkButton>
+            <div className="hidden items-center gap-1 md:flex">
+              <LinkButton variant="ghost" href="#protocol">
+                Protocol
+              </LinkButton>
+              <LinkButton variant="ghost" href="#institutions">
+                Institutions
+              </LinkButton>
+            </div>
             <LinkButton variant="ghost" href={REPOS.docs}>
               Specification
             </LinkButton>
