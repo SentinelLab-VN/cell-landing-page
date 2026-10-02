@@ -7,3 +7,4 @@ export const REPOS = {
   docs: `${GITHUB_ORG}/cell-protocol-workflow`,
 };
 export const X_URL = "https://x.com/cellprotocol_";
+export const CONTACT_URL: string = import.meta.env.VITE_CONTACT_URL ?? X_URL;
