@@ -1,5 +1,6 @@
 import { Building2, Landmark, Lock, ScrollText, Scale, Server, ShieldCheck, Users } from "lucide-react";
 import type { ComponentType } from "react";
+import { Diagram } from "@/components/diagram";
 import { GitHubIcon, XIcon } from "@/components/icons";
 import { Moment } from "@/components/moment";
 import { APP_URL, CONTACT_URL, GITHUB_ORG, REPOS, X_URL } from "@/links";
@@ -35,6 +36,7 @@ export function App() {
             <span className="text-[24px] leading-none font-semibold tracking-[-0.01em] text-foreground">Cell</span>
           </a>
           <nav className="flex items-center gap-6 text-sm text-muted-foreground max-md:hidden">
+            <a className="hover:text-foreground" href="#how">How it works</a>
             <a className="hover:text-foreground" href="#capabilities">Capabilities</a>
             <a className="hover:text-foreground" href="#uses">Use cases</a>
             <a className="hover:text-foreground" href={REPOS.docs}>Docs</a>
@@ -78,6 +80,18 @@ export function App() {
                 <p className="mt-2 text-[15px] leading-[1.6] text-muted-foreground">{body}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section id="how" className="mx-auto w-full max-w-[1200px] px-8 py-20 max-md:px-4">
+          <div className="grid gap-10 lg:grid-cols-[320px_1fr]">
+            <div>
+              <h2 className="text-2xl font-semibold text-foreground">How it works</h2>
+              <p className="mt-3 text-[15px] leading-[1.6] text-muted-foreground">
+                Deposits and withdrawals are on chain. Everything in between is in your ledger.
+              </p>
+            </div>
+            <Diagram />
           </div>
         </section>
 
