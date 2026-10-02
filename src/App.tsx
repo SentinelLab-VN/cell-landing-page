@@ -1,112 +1,141 @@
 import { LogoMark } from "@/components/logo-mark";
-import { LinkButton } from "@/components/ui";
-import { APP_URL, GITHUB_ORG } from "@/links";
-import { Developers } from "@/sections/developers";
-import { Hero } from "@/sections/hero";
-import { How } from "@/sections/how";
-import { Roles } from "@/sections/roles";
-import { Trust } from "@/sections/trust";
+import { LinkButton, Row, Section } from "@/components/ui";
+import { APP_URL, GITHUB_ORG, REPOS } from "@/links";
 
-const nav = [
-  ["How it works", "#how"],
-  ["Operators", "#operators"],
-  ["Trust", "#trust"],
-  ["Developers", "#developers"],
+const spec = [
+  ["escrow", "one Soroban contract per operator; every asset inside it"],
+  ["custody bound", "release ≤ TotalLocked(asset), ≤ release_cap(asset)"],
+  ["release gate", "SHA-256 sparse Merkle proof, one payout per nonce"],
+  ["authorisation", "Ed25519 wallet signature on every transfer and withdrawal"],
+  ["finality", "in-channel: synchronous · on-chain: one ledger (~5 s)"],
+  ["datastore", "PostgreSQL, double-entry, reconciled against the chain"],
 ];
 
 export function App() {
   return (
     <div className="min-h-screen">
-      <nav className="sticky top-0 z-20 border-b border-border/70 bg-background/80 backdrop-blur">
-        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
+      <nav className="border-b border-border">
+        <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
           <a href="#" className="flex items-center gap-2.5">
-            <LogoMark className="size-[22px] text-primary" />
-            <span className="text-base font-semibold text-foreground">Cell</span>
-            <span className="num ml-1 hidden text-xs text-dim sm:inline">testnet</span>
+            <LogoMark className="size-5 text-primary" />
+            <span className="text-[15px] font-semibold text-foreground">Cell</span>
           </a>
-          <div className="hidden items-center gap-7 md:flex">
-            {nav.map(([label, href]) => (
-              <a key={href} href={href} className="text-[13px] text-muted-foreground hover:text-foreground">
-                {label}
-              </a>
-            ))}
-          </div>
-          <div className="flex items-center gap-2">
-            <LinkButton variant="ghost" href={GITHUB_ORG} className="hidden md:inline-flex">
-              GitHub
+          <div className="flex items-center gap-1">
+            <LinkButton variant="ghost" href="#protocol" className="hidden sm:inline-flex">
+              Protocol
             </LinkButton>
-            <LinkButton href={APP_URL} className="h-10 px-3 sm:px-4">
-              Open the app
+            <LinkButton variant="ghost" href="#institutions" className="hidden sm:inline-flex">
+              Institutions
             </LinkButton>
+            <LinkButton variant="ghost" href={REPOS.docs}>
+              Specification
+            </LinkButton>
+            <LinkButton href={APP_URL}>Open the app</LinkButton>
           </div>
         </div>
       </nav>
 
-      <main>
-        <Hero />
-
-        <div className="border-y border-border bg-card/40">
-          <dl className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-6 px-5 py-10 sm:px-8 md:grid-cols-4">
-            {[
-              ["Instant", "transfers inside a channel", "committed before the request returns"],
-              ["~5 s", "to withdraw to Stellar", "one on-chain release per withdrawal"],
-              ["0", "sign-ups", "your Stellar key is the account"],
-              ["1", "escrow per operator", "every asset they open lives inside it"],
-            ].map(([n, d, sub]) => (
-              <div key={d}>
-                <dt className="num text-3xl text-foreground">{n}</dt>
-                <dd className="mt-1 text-sm font-medium text-foreground">{d}</dd>
-                <dd className="mt-0.5 text-[13px] leading-snug text-muted-foreground">{sub}</dd>
-              </div>
-            ))}
-          </dl>
+      <header className="mx-auto grid w-full max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[1fr_1fr]">
+        <div>
+          <p className="eyebrow text-dim">Stellar · Soroban · testnet</p>
+          <h1 className="mt-4 text-[36px] leading-[1.08] font-semibold tracking-[-0.025em] text-foreground sm:text-[52px]">
+            A private payment channel protocol on Stellar.
+          </h1>
+          <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+            An operator locks assets in an escrow it owns. Users transact against that escrow off chain, instantly,
+            each move signed by their own key. Withdrawals leave through a proof the contract verifies.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <LinkButton href={REPOS.docs}>Read the specification</LinkButton>
+            <LinkButton variant="outline" href={`${REPOS.contract}/blob/main/docs/deploy.md`}>
+              Deploy on testnet
+            </LinkButton>
+          </div>
         </div>
 
-        <How />
-        <Roles />
-        <Trust />
-        <Developers />
-
-        <section className="mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8">
-          <div className="rounded-3xl border border-border bg-[radial-gradient(80%_120%_at_50%_0%,rgba(200,249,78,0.12),transparent_60%)] px-6 py-14 text-center sm:px-12">
-            <LogoMark className="mx-auto size-10 text-primary" />
-            <h2 className="mt-6 text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
-              Connect a wallet. That is the whole onboarding.
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-              Sign a one-time challenge — no transaction, no fee — and land on your tenants: the ones you run, and the
-              ones that owe you money.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <LinkButton size="lg" href={APP_URL}>
-                Open the app
-              </LinkButton>
-              <LinkButton size="lg" variant="outline" href={`${GITHUB_ORG}/cell-protocol-workflow`}>
-                Read the docs
-              </LinkButton>
+        <dl className="self-center rounded-xl border border-border bg-card">
+          {spec.map(([k, v]) => (
+            <div key={k} className="grid grid-cols-[120px_1fr] gap-4 border-t border-border px-5 py-3.5 first:border-t-0 sm:grid-cols-[140px_1fr]">
+              <dt className="eyebrow pt-0.5 text-dim">{k}</dt>
+              <dd className="num text-[13px] leading-relaxed text-foreground">{v}</dd>
             </div>
-          </div>
-        </section>
-      </main>
+          ))}
+        </dl>
+      </header>
+
+      <Section id="protocol" label="Protocol">
+        <dl>
+          <Row term="Escrow">
+            Holds custody per asset and records <span className="num">TotalLocked</span>. Admin opens assets, sets a
+            per-release cap and two independent gates. Operators may only release.
+          </Row>
+          <Row term="Channel">
+            A double-entry ledger the operator runs. A deposit event credits the recipient; a transfer moves balance
+            between two addresses and never touches the chain.
+          </Row>
+          <Row term="Release">
+            One <span className="num">release_funds</span> per withdrawal, carrying an exclusion proof against the
+            current root and the new root with the nonce spent. The contract pays once, then installs the new root.
+          </Row>
+          <Row term="Tenant">
+            One escrow deployment. Isolation is by contract instance: admin key, operator set and nonce space are never
+            shared between operators.
+          </Row>
+        </dl>
+      </Section>
+
+      <Section id="institutions" label="Institutions">
+        <dl>
+          <Row term="Keys">
+            The admin key stays in your wallet; the backend only builds unsigned envelopes. The payout key is derived per
+            tenant and can only call <span className="num">release_funds</span> and{" "}
+            <span className="num">reset_smt_root</span>.
+          </Row>
+          <Row term="Deployment">
+            One image, hosted or self-hosted. Self-hosted means your own master secret, your own RPC, your own
+            database.
+          </Row>
+          <Row term="Controls">
+            Per-asset release cap and deposit / withdrawal gates on chain. Membership policy (open, approval, invite
+            only), block, KYC status and a full audit log off chain.
+          </Row>
+          <Row term="Reconciliation">
+            Journal, event mirror and a live chain read are compared per asset, continuously. A difference halts that
+            tenant's payouts until a person resumes them.
+          </Row>
+          <Row term="Trust model">
+            The chain bounds what can leave. The wallet authorises every move. The operator is trusted for the books,
+            and there is no user-forced exit in v1.
+          </Row>
+        </dl>
+      </Section>
+
+      <Section id="source" label="Source">
+        <ul className="grid gap-x-10 gap-y-3 sm:grid-cols-2">
+          {[
+            ["cell-protocol-contract", "Soroban escrow", REPOS.contract],
+            ["cell-channel", "gateway · pipeline · indexer", REPOS.backend],
+            ["cell-frontend", "wallet view · operator console", REPOS.frontend],
+            ["cell-protocol-workflow", "specification · design", REPOS.docs],
+          ].map(([name, what, href]) => (
+            <li key={name} className="flex items-baseline justify-between gap-4 border-b border-border py-3 text-[13px]">
+              <a className="num text-foreground hover:text-primary" href={href}>
+                {name}
+              </a>
+              <span className="text-muted-foreground">{what}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       <footer className="border-t border-border">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-5 py-8 text-[13px] text-dim sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <div className="flex items-center gap-2">
-            <LogoMark className="size-4 text-primary" />
-            <span className="text-foreground">Cell</span>
-            <span>· a private payment channel on Stellar</span>
-          </div>
-          <div className="flex gap-5">
-            <a className="hover:text-foreground" href={GITHUB_ORG}>
-              SentinelLab
-            </a>
-            <a className="hover:text-foreground" href={`${GITHUB_ORG}/cell-protocol-workflow`}>
-              Docs
-            </a>
-            <a className="hover:text-foreground" href={`${GITHUB_ORG}/cell-protocol-contract`}>
-              Contract
-            </a>
-          </div>
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-6 text-[12px] text-dim sm:px-8">
+          <span className="flex items-center gap-2">
+            <LogoMark className="size-4 text-primary" /> Cell
+          </span>
+          <a className="hover:text-foreground" href={GITHUB_ORG}>
+            SentinelLab
+          </a>
         </div>
       </footer>
     </div>
