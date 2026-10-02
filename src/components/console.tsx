@@ -6,7 +6,6 @@ export function Console() {
         <div className="flex items-center gap-2.5">
           <img src="/logo.png" alt="" className="size-5 object-contain" />
           <span className="text-sm font-semibold text-foreground">Acme Pay</span>
-          <Pill tone="accent">Operator</Pill>
         </div>
         <Pill tone="ok">Reconciled 12s ago</Pill>
       </div>
@@ -20,7 +19,7 @@ export function Console() {
       <table className="w-full border-collapse text-left">
         <thead className="bg-secondary/60">
           <tr>
-            {["Asset", "Members", "Queue", "Gates"].map((h) => (
+            {["Asset", "Locked", "Queue", "Gates"].map((h) => (
               <th key={h} className="num px-5 py-2.5 text-[11px] font-medium tracking-[0.2em] whitespace-nowrap text-dim uppercase">
                 {h}
               </th>
@@ -29,10 +28,10 @@ export function Console() {
         </thead>
         <tbody>
           {[
-            ["USDC", "2,418", "3", "open"],
-            ["EURC", "611", "0", "open"],
-            ["XLM", "1,902", "1", "deposits paused"],
-          ].map(([asset, members, queue, gates]) => (
+            ["USDC", "1,284,500.00", "3", "open"],
+            ["EURC", "212,000.00", "0", "open"],
+            ["XLM", "90,000.00", "1", "deposits paused"],
+          ].map(([asset, locked, queue, gates]) => (
             <tr key={asset} className="border-t border-sidebar-border">
               <td className="px-5 py-3">
                 <span className="flex items-center gap-2.5">
@@ -42,7 +41,7 @@ export function Console() {
                   <span className="text-sm text-foreground">{asset}</span>
                 </span>
               </td>
-              <td className="num px-5 py-3 text-sm text-foreground">{members}</td>
+              <td className="num px-5 py-3 text-sm text-foreground">{locked}</td>
               <td className="num px-5 py-3 text-sm text-foreground">{queue}</td>
               <td className="px-5 py-3">
                 <Pill tone={gates === "open" ? "ok" : "warn"}>{gates}</Pill>
@@ -69,9 +68,8 @@ function Stat({ label, value, unit }: { label: string; value: string; unit: stri
 const tones = {
   ok: "border-success-subtle-border bg-success-subtle text-success",
   warn: "border-warning-subtle-border bg-warning-subtle text-warning",
-  accent: "border-primary-subtle-border bg-primary-subtle text-primary-ink",
 };
-const dots = { ok: "bg-success", warn: "bg-warning", accent: "bg-primary-ink" };
+const dots = { ok: "bg-success", warn: "bg-warning" };
 
 export function Pill({ tone, children }: { tone: keyof typeof tones; children: string }) {
   return (
