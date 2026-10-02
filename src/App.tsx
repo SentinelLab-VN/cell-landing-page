@@ -19,8 +19,9 @@ export function App() {
           Payments on Stellar that stay private.
         </h1>
         <p className="mt-6 text-[16px] leading-relaxed text-muted-foreground sm:text-[17px]">
-          You put money into Cell Channel once. From then on you pay other members inside it: instantly, and without
-          the payment appearing on the public ledger. When you want it back on Stellar, you withdraw.
+          Money comes into Cell Channel once. From then on members pay each other inside it: instantly, and without
+          the payment appearing on the public ledger. A withdrawal pays out to any Stellar address, yours or someone
+          else's.
         </p>
       </header>
 
