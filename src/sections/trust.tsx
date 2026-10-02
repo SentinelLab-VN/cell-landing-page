@@ -18,7 +18,7 @@ export function Trust() {
       id="trust"
       eyebrow="Trust model"
       title="What the chain guarantees, and what it does not."
-      lede="The operator runs the ledger and is trusted for correctness. The escrow bounds the worst case, and the wallet authorises every move. We would rather say exactly where the line is."
+      lede="Three parties, three jobs. The chain caps what can leave. Your wallet decides what moves. The operator keeps the books, and is trusted to keep them honestly."
     >
       <div className="grid gap-4 lg:grid-cols-3">
         <Card>

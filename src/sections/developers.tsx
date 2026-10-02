@@ -45,9 +45,7 @@ export function Developers() {
                 <span className="eyebrow shrink-0 text-dim">{r.stack}</span>
               </div>
               <p className="mt-3 text-[13.5px] leading-relaxed text-muted-foreground">{r.body}</p>
-              <p className="num mt-4 text-[11px] text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                github ↗
-              </p>
+              <p className="num mt-4 text-[11px] text-dim transition-colors group-hover:text-primary">github ↗</p>
             </Card>
           </a>
         ))}

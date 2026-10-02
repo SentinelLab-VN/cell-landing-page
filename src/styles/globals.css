@@ -62,7 +62,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply overflow-x-hidden bg-background text-foreground antialiased;
   }
   /* Every amount, address, hash and nonce is mono and tabular. */
   .num {

@@ -26,7 +26,8 @@ interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 export function LinkButton({ variant = "primary", size = "md", className = "", children, ...props }: LinkButtonProps) {
-  const base = "inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold transition-colors";
+  const base =
+    "inline-flex shrink-0 items-center justify-center gap-2 rounded-[10px] font-semibold whitespace-nowrap transition-colors";
   const sizes = size === "lg" ? "h-12 px-6 text-[15px]" : "h-[46px] px-5 text-sm";
   const variants = {
     primary: "bg-primary text-primary-foreground hover:bg-[#D6FF62]",

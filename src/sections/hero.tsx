@@ -4,7 +4,7 @@ import { APP_URL, GITHUB_ORG } from "@/links";
 const balances = [
   { code: "USDC", amount: "250.00", from: "GBXK…7QZM", when: "2 hours ago" },
   { code: "EURC", amount: "40.00", from: "GC2M…P0RD", when: "Mar 09" },
-  { code: "XLM", amount: "1,200.0000000", from: "deposit", when: "Mar 02" },
+  { code: "XLM", amount: "1,200.00", from: "deposit", when: "Mar 02" },
 ];
 
 export function Hero() {
@@ -37,8 +37,8 @@ export function Hero() {
           <p className="mt-5 text-[13px] text-dim">No email, no password. Your Stellar key is your account.</p>
         </div>
 
-        <div className="relative">
-          <div className="rounded-2xl border border-border bg-card shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
+        <div className="relative min-w-0">
+          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
             <div className="flex items-center justify-between border-b border-border px-5 py-4">
               <div>
                 <p className="eyebrow text-dim">Acme Pay · Balances</p>
@@ -48,19 +48,16 @@ export function Hero() {
             </div>
             <ul className="divide-y divide-border">
               {balances.map((b) => (
-                <li key={b.code} className="flex items-center justify-between px-5 py-4">
-                  <div className="flex items-center gap-3">
-                    <span className="num flex size-9 items-center justify-center rounded-xl bg-popover text-[11px] font-medium text-muted-foreground">
-                      {b.code.slice(0, 1)}
+                <li key={b.code} className="flex items-center justify-between gap-3 px-5 py-4">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <span className="num flex h-9 w-12 shrink-0 items-center justify-center rounded-xl bg-popover text-[10px] font-medium tracking-[0.05em] text-muted-foreground">
+                      {b.code}
                     </span>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">{b.code}</p>
-                      <p className="num text-[11px] text-dim">
-                        {b.from} · {b.when}
-                      </p>
-                    </div>
+                    <p className="num truncate text-[11px] text-dim">
+                      {b.from} · {b.when}
+                    </p>
                   </div>
-                  <div className="text-right">
+                  <div className="shrink-0 text-right">
                     <p className="num text-base text-foreground">{b.amount}</p>
                     <p className="num text-[11px] text-success">already yours</p>
                   </div>

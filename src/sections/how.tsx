@@ -1,4 +1,5 @@
 import { Card, Section } from "@/components/ui";
+import { Planes } from "./planes";
 
 const steps = [
   {
@@ -33,9 +34,11 @@ export function How() {
       id="how"
       eyebrow="How it works"
       title="One escrow on chain. One ledger off it."
-      lede="Mainnet sees deposits in and one release per withdrawal out. Everything in between is private to the channel, and every move inside it is signed by the wallet that owns the money."
+      lede="An operator locks real assets in an escrow on Stellar. Cell mirrors them into a private channel where transfers are instant, and pays them back out on chain when asked."
     >
-      <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <Planes />
+      <p className="eyebrow mt-14 text-dim">Step by step</p>
+      <ol className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {steps.map((s) => (
           <li key={s.n}>
             <Card className="h-full">

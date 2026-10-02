@@ -32,10 +32,12 @@ export function App() {
             ))}
           </div>
           <div className="flex items-center gap-2">
-            <LinkButton variant="ghost" href={GITHUB_ORG} className="hidden sm:inline-flex">
+            <LinkButton variant="ghost" href={GITHUB_ORG} className="hidden md:inline-flex">
               GitHub
             </LinkButton>
-            <LinkButton href={APP_URL}>Open the app</LinkButton>
+            <LinkButton href={APP_URL} className="h-10 px-4">
+              Open the app
+            </LinkButton>
           </div>
         </div>
       </nav>
@@ -46,14 +48,15 @@ export function App() {
         <div className="border-y border-border bg-card/40">
           <dl className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-6 px-5 py-10 sm:px-8 md:grid-cols-4">
             {[
-              ["~ms", "in-channel finality, synchronous"],
-              ["~5s", "on-chain release, one per withdrawal"],
-              ["0", "sign-ups. The wallet is the account"],
-              ["1", "escrow per tenant, every asset inside it"],
-            ].map(([n, d]) => (
+              ["Instant", "transfers inside a channel", "committed before the request returns"],
+              ["~5 s", "to withdraw to Stellar", "one on-chain release per withdrawal"],
+              ["0", "sign-ups", "your Stellar key is the account"],
+              ["1", "escrow per operator", "every asset they open lives inside it"],
+            ].map(([n, d, sub]) => (
               <div key={d}>
                 <dt className="num text-3xl text-foreground">{n}</dt>
-                <dd className="mt-1 text-[13px] leading-snug text-muted-foreground">{d}</dd>
+                <dd className="mt-1 text-sm font-medium text-foreground">{d}</dd>
+                <dd className="mt-0.5 text-[13px] leading-snug text-muted-foreground">{sub}</dd>
               </div>
             ))}
           </dl>
