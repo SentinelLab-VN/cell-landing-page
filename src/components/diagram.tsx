@@ -1,8 +1,8 @@
 const steps = [
-  ["Deposit", "A user sends a Stellar asset to the operator's escrow. It is locked there."],
-  ["Mirror", "The deposit is credited to the user's balance inside the channel."],
-  ["Transact", "Users pay each other inside the channel. Instant, and never on the public ledger."],
-  ["Withdraw", "On an approved request the escrow releases the asset on Stellar, to the address the user chose."],
+  ["Deposit", "A user sends an asset to the operator's escrow contract on Stellar."],
+  ["Credit", "The operator sees the deposit and credits the same amount to the user's balance in the channel."],
+  ["Pay", "Users send balances to each other in the channel. This takes a moment and is not written to the chain."],
+  ["Withdraw", "A user asks to withdraw. Once the operator approves, the escrow sends the asset to the Stellar address the user chose."],
 ];
 
 export function Diagram() {
