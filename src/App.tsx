@@ -35,10 +35,8 @@ export function App() {
             Private payments on Stellar
           </h1>
           <p className="mt-6 text-base leading-[1.65] text-muted-foreground">
-            Cell is a payment channel for Stellar. An operator, such as a bank or a fintech, locks assets in an escrow
-            contract and gives its users balances backed by it. Users pay each other inside the channel, which is
-            instant and does not show up on the public ledger. When a user wants the money back on Stellar, the
-            operator approves the withdrawal and the escrow pays it out.
+            An operator locks assets in an escrow on Stellar. Its users pay each other against that escrow, instantly
+            and off chain. Only deposits and withdrawals touch the ledger.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href={APP_URL} className={primary}>
@@ -58,26 +56,11 @@ export function App() {
         </section>
 
         <section className="border-t border-border py-14">
-          <h2 className="text-xl font-semibold text-foreground">What is on chain and what is not</h2>
+          <h2 className="text-xl font-semibold text-foreground">Who it is for</h2>
           <p className="mt-4 text-base leading-[1.65] text-muted-foreground">
-            Every deposit and every withdrawal is a normal Stellar transaction, so anyone can see them and can check
-            that the escrow holds what it should. The transfers between users are not on chain. They are recorded in
-            the operator's ledger, and each one is signed by the sender's own Stellar key, so the operator cannot move
-            a balance on its own. The escrow can never pay out more than it holds, and it pays each withdrawal exactly
-            once.
-          </p>
-          <p className="mt-4 text-base leading-[1.65] text-muted-foreground">
-            This is the trade-off: the operator is trusted to keep its books honestly, and in this version there is no
-            way for a user to force a withdrawal without the operator.
-          </p>
-        </section>
-
-        <section className="border-t border-border py-14">
-          <h2 className="text-xl font-semibold text-foreground">Running a channel</h2>
-          <p className="mt-4 text-base leading-[1.65] text-muted-foreground">
-            Each operator deploys its own escrow contract and keeps the admin key in its own wallet. Inside that
-            contract it can open as many assets as it wants, for example USDC, EURC and XLM, and decide who may join.
-            The software can be run by us or on the operator's own servers. Users only need a Stellar wallet.
+            Banks, fintechs and marketplaces that want to move money between their users without putting every
+            payment on chain. Each operator runs its own escrow and keeps its own keys. Users only need a Stellar
+            wallet.
           </p>
         </section>
       </main>

@@ -1,8 +1,8 @@
 const steps = [
-  ["Deposit", "A user sends an asset to the operator's escrow contract on Stellar."],
-  ["Credit", "The operator sees the deposit and credits the same amount to the user's balance in the channel."],
-  ["Pay", "Users send balances to each other in the channel. This takes a moment and is not written to the chain."],
-  ["Withdraw", "A user asks to withdraw. Once the operator approves, the escrow sends the asset to the Stellar address the user chose."],
+  ["Deposit", "Send an asset to the operator's escrow."],
+  ["Credit", "The same amount appears in your channel balance."],
+  ["Pay", "Send to other users in the channel. Instant, off chain."],
+  ["Withdraw", "The operator approves and the escrow pays the address you chose."],
 ];
 
 export function Diagram() {
