@@ -1,11 +1,7 @@
+import { Diagram, Message } from "@/components/diagram";
 import { LogoMark } from "@/components/logo-mark";
 import { APP_URL, GITHUB_ORG, REPOS } from "@/links";
 
-const diagram = `wallet ──signed message──▶ gateway ──▶ pipeline ──▶ postgres
-  │                            │                        ▲
-  │ deposit (tx)               │ unsigned XDR           │ ledger
-  ▼                            ▼                        │
-escrow (Soroban) ◀──getEvents / release_funds── indexer ┘`;
 
 const entrypoints: [string, string, string][] = [
   ["deposit(from, mint, amount, recipient?)", "from", "locks the asset, credits what arrived"],
@@ -52,9 +48,9 @@ export function App() {
           operator runs. Transfers inside that ledger are signed by the sender's Stellar key and commit immediately.
           A withdrawal is paid by the contract once, against a Merkle proof.
         </p>
-        <pre className="num mt-10 overflow-x-auto border-y border-border py-6 text-[12px] leading-[1.6] text-muted-foreground">
-          {diagram}
-        </pre>
+        <div className="mt-10 border-y border-border py-8">
+          <Diagram />
+        </div>
         <p className="mt-3 text-[12px] text-dim">
           Three processes, one PostgreSQL. The indexer is the only process holding a key, and that key can only
           release.
@@ -96,10 +92,10 @@ export function App() {
           A session token can read and cancel. It cannot move value. Every transfer and every withdrawal request
           carries an Ed25519 signature (SEP-53) over a message naming the amount and the destination:
         </p>
-        <pre className="num mt-5 overflow-x-auto border-y border-border py-4 text-[12px] leading-[1.8] text-foreground">
-{`cell:transfer:v1:<passphrase>:<channel>:<from>:<to>:<amount>:<nonce>:<expires_at>
-cell:withdraw:v1:<passphrase>:<channel>:<from>:<to>:<amount>:<request_id>:<expires_at>`}
-        </pre>
+        <div className="mt-5 space-y-3 border-y border-border py-5">
+          <Message kind="cell:transfer:v1" parts={["passphrase", "channel", "from", "to", "amount", "nonce", "expires_at"]} />
+          <Message kind="cell:withdraw:v1" parts={["passphrase", "channel", "from", "to", "amount", "request_id", "expires_at"]} />
+        </div>
         <p className="mt-4 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
           The network passphrase is inside the bytes, so a testnet signature is worthless on mainnet. Admin actions
           are unsigned envelopes the backend builds and the admin's wallet signs; the backend never holds that key.
