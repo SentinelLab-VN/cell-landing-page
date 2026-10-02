@@ -18,7 +18,7 @@ export function Diagram() {
       <Edge d="M110 45 H200" label="signed message" lx={155} ly={38} />
       <Edge d="M320 45 H400" label="held open" lx={360} ly={38} />
       <Edge d="M520 45 H600" label="commit" lx={560} ly={38} />
-      <Edge d="M55 70 V150" label="deposit tx" lx={62} ly={112} anchor="start" />
+      <Edge d="M55 70 V150" label="deposit tx" lx={62} ly={138} anchor="start" />
       <Edge d="M260 70 V110 H75" label="unsigned XDR, signed by the wallet" lx={168} ly={103} />
       <Edge d="M400 175 H150" label="getEvents · release_funds" lx={275} ly={168} />
       <Edge d="M460 150 V70" label="" lx={0} ly={0} />
