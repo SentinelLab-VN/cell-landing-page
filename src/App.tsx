@@ -35,7 +35,7 @@ export function App() {
             <LinkButton variant="ghost" href={GITHUB_ORG} className="hidden md:inline-flex">
               GitHub
             </LinkButton>
-            <LinkButton href={APP_URL} className="h-10 px-4">
+            <LinkButton href={APP_URL} className="h-10 px-3 sm:px-4">
               Open the app
             </LinkButton>
           </div>
