@@ -20,7 +20,7 @@ export function App() {
         </h1>
         <p className="mt-6 text-[16px] leading-relaxed text-muted-foreground sm:text-[17px]">
           Cell Protocol lets an operator give its users instant, private transfers, fully backed by real assets locked
-          on Stellar. Mainnet sees a deposit going in and a release coming out. It never sees the transfers in
+          on Stellar. The public ledger sees a deposit going in and a release coming out. It never sees the transfers in
           between.
         </p>
       </header>
@@ -45,13 +45,13 @@ export function App() {
       <section className="border-t border-border py-14">
         <h2 className="text-[15px] font-semibold text-foreground">Tenants and channels</h2>
         <p className="mt-2 max-w-xl text-[14px] leading-relaxed text-muted-foreground">
-          An operator — a bank, a fintech, a marketplace — deploys its own escrow. That is a tenant. Each asset it
-          opens inside it is a channel: USDC, EURC, XLM. Users need nothing but a Stellar wallet.
+          A bank, a fintech or a marketplace deploys its own escrow. That is a tenant. Each asset it opens inside the
+          tenant is a channel: USDC, EURC, XLM. Users need nothing but a Stellar wallet.
         </p>
       </section>
 
       <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-border py-6 text-[12px] text-dim">
-        <span>SentinelLab · testnet</span>
+        <span>SentinelLab. Running on testnet.</span>
         <span className="flex gap-5">
           <a className="hover:text-foreground" href={REPOS.docs}>
             How it works
