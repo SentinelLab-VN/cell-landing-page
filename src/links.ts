@@ -6,3 +6,4 @@ export const REPOS = {
   frontend: `${GITHUB_ORG}/cell-frontend`,
   docs: `${GITHUB_ORG}/cell-protocol-workflow`,
 };
+export const X_URL = "https://x.com/cellprotocol_";
