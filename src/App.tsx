@@ -56,8 +56,8 @@ export function App() {
               Payment channel infrastructure for Stellar
             </h1>
             <p className="mt-6 max-w-[600px] text-base leading-[1.65] text-muted-foreground">
-              Escrow on chain, instant private transfers off it, and a signed approval on every payout. For fintechs,
-              banks and marketplaces that move money between their own users.
+              Move money between your users without putting their payments on a public ledger. Assets stay in an
+              escrow on Stellar; the transfers stay private. For fintechs, banks and marketplaces.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={CONTACT_URL} className={primary}>Talk to us</a>
@@ -69,16 +69,20 @@ export function App() {
           </div>
         </section>
 
-        <div className="border-y border-border bg-card/40">
-          <div className="mx-auto flex w-full max-w-[1200px] flex-wrap items-center gap-x-10 gap-y-3 px-8 py-5 text-sm text-muted-foreground max-md:px-4">
-            <span className="text-dim">Built on</span>
-            <span>Stellar</span>
-            <span>Soroban smart contracts</span>
-            <span>Stellar Asset Contract and SEP-41 tokens</span>
-            <span>SEP-53 signed messages</span>
-            <span className="ml-auto text-dim">Live on testnet</span>
+        <section className="border-y border-border bg-card/40">
+          <div className="mx-auto grid w-full max-w-[1200px] gap-8 px-8 py-14 max-md:px-4 md:grid-cols-3">
+            {[
+              ["Nobody sees your users pay each other", "Transfers inside the channel never reach the public ledger. Outsiders cannot tell who paid whom, how much, or how often."],
+              ["Only the edges are public", "A deposit into the escrow and a withdrawal out of it are ordinary Stellar transactions. That is all the chain records."],
+              ["Private, not unaccountable", "Your ledger is reconciled against the escrow continuously, and every balance movement carries the user's signature."],
+            ].map(([title, body]) => (
+              <div key={title}>
+                <h2 className="text-base font-semibold text-foreground">{title}</h2>
+                <p className="mt-2 text-[15px] leading-[1.6] text-muted-foreground">{body}</p>
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
 
         <section id="how" className="mx-auto w-full max-w-[1200px] px-8 py-20 max-md:px-4">
           <div className="grid gap-10 lg:grid-cols-[320px_1fr]">
