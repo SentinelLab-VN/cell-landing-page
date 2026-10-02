@@ -1,9 +1,9 @@
 import { Building2, Landmark, Lock, ScrollText, Scale, Server, ShieldCheck, Users } from "lucide-react";
 import type { ComponentType } from "react";
 import { Diagram } from "@/components/diagram";
-import { GitHubIcon, XIcon } from "@/components/icons";
+import { XIcon } from "@/components/icons";
 import { Moment } from "@/components/moment";
-import { APP_URL, CONTACT_URL, GITHUB_ORG, X_URL } from "@/links";
+import { APP_URL, CONTACT_URL, X_URL } from "@/links";
 
 const button = "inline-flex h-10 items-center justify-center rounded-[10px] px-4 text-sm font-semibold whitespace-nowrap transition-colors";
 const primary = `${button} bg-primary text-primary-foreground hover:bg-primary-hover`;
@@ -128,11 +128,11 @@ export function App() {
           <div className="mx-auto flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-6 px-8 py-16 max-md:px-4">
             <div>
               <h2 className="text-2xl font-semibold text-foreground">Run a channel on testnet</h2>
-              <p className="mt-2 text-[15px] text-muted-foreground">Deploy an escrow in a few minutes. The code is open.</p>
+              <p className="mt-2 text-[15px] text-muted-foreground">Deploy an escrow in a few minutes.</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <a href={CONTACT_URL} className={primary}>Talk to us</a>
-              <a href={GITHUB_ORG} className={outline}>GitHub</a>
+              <a href={APP_URL} className={outline}>Open the app</a>
             </div>
           </div>
         </section>
@@ -148,9 +148,6 @@ export function App() {
           <span className="flex items-center gap-5">
             <a className="flex items-center gap-1.5 hover:text-foreground" href={X_URL}>
               <XIcon className="size-3.5" /> @cellprotocol_
-            </a>
-            <a className="flex items-center gap-1.5 hover:text-foreground" href={GITHUB_ORG}>
-              <GitHubIcon className="size-3.5" /> GitHub
             </a>
           </span>
         </div>
