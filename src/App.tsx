@@ -52,11 +52,11 @@ export function App() {
         <section className="mx-auto w-full max-w-[1200px] px-8 pt-16 pb-10 max-md:px-4 md:pt-24">
           <div className="max-w-[760px]">
             <h1 className="text-[36px] leading-[1.08] font-semibold tracking-[-0.03em] text-foreground md:text-[52px]">
-              Payment channel infrastructure for Stellar
+              Private payment channels on Stellar
             </h1>
             <p className="mt-6 max-w-[600px] text-base leading-[1.65] text-muted-foreground">
-              Move money between your users without putting their payments on a public ledger. Assets stay in an
-              escrow on Stellar; the transfers stay private. For fintechs, banks and marketplaces.
+              Cell gives fintechs, banks and marketplaces a channel where their users can pay each other without
+              those payments ever being written to the public ledger. The money itself stays in an escrow on Stellar.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={CONTACT_URL} className={primary}>Talk to us</a>
