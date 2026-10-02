@@ -1,4 +1,3 @@
-import { Console } from "@/components/console";
 import { Diagram } from "@/components/diagram";
 import { GitHubIcon, XIcon } from "@/components/icons";
 import { APP_URL, CONTACT_URL, GITHUB_ORG, REPOS, X_URL } from "@/links";
@@ -46,13 +45,13 @@ export function App() {
       </header>
 
       <main>
-        <section className="mx-auto grid w-full max-w-[1200px] items-center gap-12 px-8 py-16 max-md:px-4 md:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
-          <div>
+        <section className="mx-auto w-full max-w-[1200px] px-8 py-16 max-md:px-4 md:py-24">
+          <div className="max-w-[720px]">
             <p className="text-sm font-medium text-primary-ink">For banks, fintechs and marketplaces</p>
             <h1 className="mt-4 text-[36px] leading-[1.08] font-semibold tracking-[-0.03em] text-foreground md:text-[52px]">
               Private payment infrastructure on Stellar
             </h1>
-            <p className="mt-6 max-w-[520px] text-base leading-[1.65] text-muted-foreground">
+            <p className="mt-6 max-w-[600px] text-base leading-[1.65] text-muted-foreground">
               Lock assets in an escrow you control. Move money between your users instantly and off chain. Pay out
               through the contract, one withdrawal at a time, with your controls in between.
             </p>
@@ -61,7 +60,6 @@ export function App() {
               <a href={REPOS.docs} className={outline}>Read the docs</a>
             </div>
           </div>
-          <Console />
         </section>
 
         <div className="border-y border-border bg-card/40">
