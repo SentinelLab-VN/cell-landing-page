@@ -11,9 +11,9 @@ export function cn(...parts: (string | false | null | undefined)[]): string {
 /** Centred content column, same gutter rhythm as the app (16px on phones, 32px on desktop). */
 export const container = "mx-auto w-full max-w-[1200px] px-[clamp(16px,4vw,32px)]";
 /** Vertical rhythm of a full section. */
-export const sectionPad = "py-[clamp(56px,7vw,96px)]";
+export const sectionPad = "py-[clamp(44px,5vw,72px)]";
 /** Section eyebrow + heading sizes. */
-export const h2 = "font-semibold tracking-[-0.025em] text-foreground text-[clamp(28px,3.2vw,44px)] leading-[1.12]";
+export const h2 = "font-semibold tracking-[-0.025em] text-foreground text-[clamp(26px,2.8vw,38px)] leading-[1.15]";
 
 const buttonBase = "inline-flex items-center justify-center rounded-[10px] font-semibold whitespace-nowrap transition-colors duration-150";
 const buttonVariant = {
